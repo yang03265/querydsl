@@ -1,5 +1,5 @@
 package com.querydsl.example.config;
-
+import com.zaxxer.hikari.*;
 import com.jolbox.bonecp.BoneCPDataSource;
 import com.querydsl.sql.H2Templates;
 import com.querydsl.sql.SQLQueryFactory;
@@ -26,12 +26,29 @@ public class JdbcConfiguration {
 
     @Bean
     public DataSource dataSource() {
+
+        /**HikariDataSource ds = new HikariDataSource();
+        ds.setDriverClassName(env.getRequiredProperty("jdbc.driver"));
+        ds.setJdbcUrl(env.getRequiredProperty("jdbc.url"));
+        ds.setUsername(env.getRequiredProperty("jdbc.user"));
+        ds.setPassword(env.getRequiredProperty("jdbc.password"));
+        ds.setAutoCommit(false);
+        ds.setIsolateInternalQueries(true);
+        return ds;**/
+
+
         BoneCPDataSource dataSource = new BoneCPDataSource();
         dataSource.setDriverClass(env.getRequiredProperty("jdbc.driver"));
         dataSource.setJdbcUrl(env.getRequiredProperty("jdbc.url"));
         dataSource.setUsername(env.getRequiredProperty("jdbc.user"));
         dataSource.setPassword(env.getRequiredProperty("jdbc.password"));
+        //dataSource.setMinConnectionsPerPartition(0);
+        //dataSource.setMaxConnectionsPerPartition(1);
+        //dataSource.setPartitionCount(3);
+        //dataSource.setIdleMaxAgeInSeconds(1);
+        //dataSource.setPoolStrategy("CACHED");
         return dataSource;
+
     }
 
     @Bean
