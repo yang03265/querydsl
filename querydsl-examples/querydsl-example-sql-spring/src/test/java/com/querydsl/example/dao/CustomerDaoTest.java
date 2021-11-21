@@ -26,6 +26,7 @@ public class CustomerDaoTest extends AbstractDaoTest {
 
     @Test
     public void update() {
+        List<Customer> customers = customerDao.findAll();
         Customer customer = customerDao.findById(1);
         customerDao.save(customer);
     }
@@ -35,6 +36,12 @@ public class CustomerDaoTest extends AbstractDaoTest {
         Customer customer = customerDao.findById(1);
         customerDao.delete(customer);
         assertNull(customerDao.findById(1));
+    }
+
+    @Test
+    public void count() {
+        List<Customer> customers = customerDao.findAll();
+        assertEquals(customers.size(), customerDao.count());
     }
 
 }

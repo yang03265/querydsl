@@ -21,6 +21,7 @@ public class PersonDaoTest extends AbstractDaoTest {
 
     @Test
     public void findById() {
+        List<Person> persons = personDao.findAll();
         assertNotNull(personDao.findById(1));
     }
 
@@ -38,6 +39,12 @@ public class PersonDaoTest extends AbstractDaoTest {
         assertNotNull(person.getId());
         personDao.delete(person);
         assertNull(personDao.findById(person.getId()));
+    }
+
+    @Test
+    public void count(){
+        List<Person> persons = personDao.findAll();
+        assertEquals(persons.size(),personDao.count());
     }
 
 }

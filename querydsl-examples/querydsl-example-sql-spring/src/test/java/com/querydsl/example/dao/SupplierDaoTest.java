@@ -39,4 +39,9 @@ public class SupplierDaoTest extends AbstractDaoTest {
         assertNull(supplierDao.findById(supplier.getId()));
     }
 
+    @Test
+    public void count(){
+        List<Supplier> suppliers = supplierDao.findAll();
+        assertEquals(suppliers.size(), supplierDao.count());
+    }
 }

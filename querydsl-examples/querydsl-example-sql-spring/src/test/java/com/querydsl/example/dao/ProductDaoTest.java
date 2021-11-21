@@ -45,5 +45,10 @@ public class ProductDaoTest extends AbstractDaoTest {
         productDao.delete(product);
         assertNull(productDao.findById(product.getId()));
     }
+    @Test
+    public void count(){
+        List<Product> products = productDao.findAll();
+        assertEquals(products.size(), productDao.count());
+    }
 
 }

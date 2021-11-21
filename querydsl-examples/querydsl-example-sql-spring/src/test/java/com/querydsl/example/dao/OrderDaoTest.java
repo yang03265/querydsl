@@ -50,4 +50,9 @@ public class OrderDaoTest extends AbstractDaoTest {
         orderDao.delete(order);
         assertNull(orderDao.findById(order.getId()));
     }
+    @Test
+    public void count(){
+        List<Order> orders = orderDao.findAll();
+        assertEquals(orders.size(), orderDao.count());
+    }
 }
