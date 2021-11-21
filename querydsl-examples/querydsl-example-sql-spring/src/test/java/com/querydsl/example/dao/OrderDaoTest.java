@@ -51,6 +51,7 @@ public class OrderDaoTest extends AbstractDaoTest {
         assertNull(orderDao.findById(order.getId()));
     }
     @Test
+    //It tests the count method. Added to increase method coverage to 100%
     public void count(){
         List<Order> orders = orderDao.findAll();
         assertEquals(orders.size(), orderDao.count());

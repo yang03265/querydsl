@@ -40,6 +40,7 @@ public class SupplierDaoTest extends AbstractDaoTest {
     }
 
     @Test
+    //It tests the count method. Added to increase method coverage to 100%
     public void count(){
         List<Supplier> suppliers = supplierDao.findAll();
         assertEquals(suppliers.size(), supplierDao.count());

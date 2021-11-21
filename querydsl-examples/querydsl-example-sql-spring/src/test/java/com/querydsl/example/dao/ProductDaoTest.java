@@ -46,6 +46,7 @@ public class ProductDaoTest extends AbstractDaoTest {
         assertNull(productDao.findById(product.getId()));
     }
     @Test
+    //It tests the count method. Added to increase method coverage to 100%
     public void count(){
         List<Product> products = productDao.findAll();
         assertEquals(products.size(), productDao.count());

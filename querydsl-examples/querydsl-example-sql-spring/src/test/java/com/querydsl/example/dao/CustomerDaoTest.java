@@ -39,6 +39,7 @@ public class CustomerDaoTest extends AbstractDaoTest {
     }
 
     @Test
+    //It tests the count method. Added to increase method coverage to 100%
     public void count() {
         List<Customer> customers = customerDao.findAll();
         assertEquals(customers.size(), customerDao.count());
