@@ -25,6 +25,8 @@ public class JdbcConfiguration {
     @Inject Environment env;
 
     @Bean
+    // This is used to define dataSource and used to programmatically configure our own DataSource implementation
+    // See https://www.baeldung.com/spring-boot-configure-data-source-programmatic for more information
     public DataSource dataSource() {
 
         /**HikariDataSource ds = new HikariDataSource();
